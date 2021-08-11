@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Roboto:wght@300&display=swap');
+*{
+    box-sizing: border-box;
+    font-family:'Open Sans Condensed', sans-serif;
+}
+/*El elemento body es ele elemento global*/
+body{
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /*Ponemos el overflow para que todo lo que soresalga*/
+    margin: 0; /*Margen del 0 px*/
+}
+/*El elemento container es aquel eleemnto global que contiene todas las tarjetas*/
+.container{
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*La clase de panel son las tarjetas*/
+.panel{
+    height:90vh; /*Ocopa el 90% de la pagina*/
+    color: #fff;
+    background-size: cover; /*EL tamaño se recubre el elemento con tamaños proporcionales*/
+    border-radius:30px;
+    cursor:pointer;
+    flex:0.5; /*El elemento flex me permite definir el tamaño de la caja de representacion como minimo*/
+    margin: 10px;
+    position: relative;
+    transition: flex 0.8s ease-in; /*Realizamos una transicion del elemento de tipo flex con un tiempo y un tipo de animacion*/
+}
+.panel h3{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    opacity:0;
+}
+
+/*Cuando exista la clase panel  y active realiza la extencion */
+.panel.active{
+    /*El tamaño de la caja crece a 5 unidades y se activa la unidad de flex:.5*/
+    flex:5;
+}
+.panel.active h3{
+    /*La opacidad regresa a 1 cuando exista la clase active*/
+    opacity:1;
+}
+
+
+/*Media query de 0px a 480px*/
+@media(max-width:480px){
+    .container{
+        width:100vw;
+    }
+    /*De la clase panel tomamos el elemento 4 y 5 con la propiedad y elejimos el elemento*/
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5){
+        /*Ocultamos el elemento*/
+        display:none;
+    }
+}
